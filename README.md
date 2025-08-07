@@ -121,7 +121,7 @@
 - JS is a loosely typed or weakly typed language.
 - we can put every data type inside a variable it can be string it can be number or boolean anything.
 
-![alt text](image.png)
+![alt text](./image10.png)
 
 -Not a best practice assigning a varibale to undefined in code.
 >var a = undefined;
