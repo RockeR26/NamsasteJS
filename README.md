@@ -83,3 +83,51 @@
 - Because each function has their own execution context and they will have thier own memory creation phase so each x will be created inside thier respective execution context.
 - after the function call is finished it will remove the execution context and its respective memory allocated variables or functions.
 - JS engine and call stack handles this very efficiently. So the funtional x will have thier own value for a() - 10, b() - 100 , and the global x will finally console.log at line number 4 as 1
+
+## 5. Shortest Js Program , Window, This
+
+- Shortest program in JS is the blank JS file or you can say for example blank index.js JS file.
+
+- Even when it is an empty JS still Global context Gets created also sets up the memory space. 
+
+- With Global context it Creates a Global Object window and a keyword this.
+
+- In global scope this points to Global Object, So we can say -
+> this===window // true
+
+- window is a object that has many functions and variables in it which is created by JS engine
+
+- Global object in Browsers Js engine is window
+- Global space is the code which is not inside the fucntion
+- The variables and functions we create in global space gets attached the global object.
+- Like in the following image a and b is there in global object not x.
+
+![alt](./image8.png)
+
+- to access this values from global object we can use window.(variable or fucntion name) or simply the (name) Js assumes we are saying window.(name) , or we can also use this.(name)
+
+> console.log(window.a) //10
+> console.log(a) //10
+> console.log(this.a) //10
+> console.log(x) // refrence error as it is not a part of window object.
+
+## 6. undefined vs not-defined
+- undefined is a placeholder which is being assigned to a variable when execution context is created and memory creation phase is done.
+-not-defined is something for which memory is not allocated.
+-undefined is not empty it is a special keyword that acts as placeholder until the variable is assigned some other value
+
+![alt](./image9.png)
+
+- JS is a loosely typed or weakly typed language.
+- we can put every data type inside a variable it can be string it can be number or boolean anything.
+
+![alt text](image.png)
+
+-Not a best practice assigning a varibale to undefined in code.
+>var a = undefined;
+
+- because undefined has specific purpose which is to say that the variable was not assigned with a value. its bad practice.
+
+
+
+
