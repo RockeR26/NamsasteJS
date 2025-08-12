@@ -123,10 +123,97 @@
 
 ![alt text](./image10.png)
 
--Not a best practice assigning a varibale to undefined in code.
+- Not a best practice assigning a varibale to undefined in code.
 >var a = undefined;
 
 - because undefined has specific purpose which is to say that the variable was not assigned with a value. its bad practice.
+
+## 7. Scope chaining and Lexical environment.
+- Scope in Js is directly related to lexical environment.
+
+- **Scope** - Scope means where you can access the specific function or a variable. scope of the varible or scope of the function.
+
+- **Global Variables**- Varibales inside global context is called global variables. and it can be accessed from anywhere in program (we will know how).
+
+- **Lexical Environment**- Whenever a Execution context is created Lexical environment is also created. Lexical Environment is the local memory and Lexical environment of its parent (lexical means in hierarchy or in sequence).
+>Lexical env = local Memory + Lexical env of parent
+
+![alt](./image11.png)
+
+> [!NOTE]
+> The c() function is Lexically inside a function.
+
+- Whenever Exec. Context  is created a Lexical Environment reference of parent also get created inside it.
+
+- **Scope Chain** - The way of finding values from own lexical envrioment to its parents lexical environment and this goes on until it reaches the global environment which points to null.
+
+![alt](./image11.png)
+
+![alt](./image12.png)
+
+- So Here we can see the Lexical environment of c( ) points to a( ).
+> Sequence of Scope chain- c()->a()->Global->null.
+
+
+## 8. let, const in JS and Temporal Dead Zone.
+
+> let and const are hoisted but they are hoisted bit differently than var.
+
+- let and const remain in temporal dead zone for time being.
+
+- Whenever we try to access let or const before it is declared we get a reference error that says "RefrenceError: Cannot access (variable_name) before initialization".
+
+![alt](./image13.png)
+
+- So in the below image we can see that let and const are hoisted but they declared in separate memory space not in global memory space like var. that is why they are not accessible before initialization.
+
+![alt](./image15.png)
+![alt](./image14.png)
+
+- **Temporal Dead Zone** - it is the time between the let/const was hoisted and  it was initialised with some value.
+
+- Whenever we try to access a variable that is not defined in the code we get a diffrent reference not the same error as let value accessed before initialization.
+
+![alt](./image16.png)
+
+- for window object and this cannot access the value of let and const because they are not part of the global space like vars. so they give undefined like for all the undeclared variables.
+
+![alt](./image17.png)
+
+- let is bit strict than var so if we try to redeclare the same variable using let or var we get a syntax error and it not even executes single line of code.
+
+>let a=10 ; var a=1000 ;let a=200 // these will give error.
+![alt](./image18.png)
+
+- const is more strict than let we have to initilize const variable at same line it is declared. it will give syntax error
+
+>const b; b=20; // will give error
+![alt](./image19.png)
+
+- if we want to assign any value later in the const it will give a diffrent error called type error.
+
+> const b=100; b=20 // will give error
+![alt](./image20.png)
+
+- When to use which variable.
+    - **const**- whenever there is a constant value through out the program use const best to use cause it is very strict.
+    -  **let**- if the value is changing use let it is less strict than const , it has TDZ  so you wont get into the issues of undefined etc.
+    - **var**- Keep var aside normal coding doesnt requires var but there are few special cases where we can use var.
+
+- Always keep your declartions and initialization at top of the scope to avoid TDZ errors.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
