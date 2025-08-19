@@ -202,6 +202,74 @@
 
 - Always keep your declartions and initialization at top of the scope to avoid TDZ errors.
 
+## 9. Block Scope.
+
+>[!NOTE]
+> "let and const are block scoped"
+
+- What is Block?
+    - Block is defined by {} these two curly braces this is a perfectly valid JS code.
+    - Block is also know n as compound statement it helps to combine multiple JS statements in one group.
+    - we need to group the statement because 
+    - we group multiple statements in a block so we can use it where JS expects single statement.
+
+    ![alt](./image21.png)
+
+- We use it in loops conditions etc. 
+- Block scope means variables or functions we can access inside block.
+
+![alt](./image22.png)
+
+- We can see in the above image is let and const are not part of global scope they are part of Block scope completely separate from global object where as var is inside the global scope.
+
+- let and const are hoisted in a diffrent space that is reserved for this block "{}" and var is hoisted in the Global scope.
+
+-  let and const are not accessible outside this block so that is why they are called block scoped.
+
+- What is Shadowing ?
+    - if you have same variable outside the block it shadows the variable outside. executes with the value inside.
+
+    ![alt](./image23.png)
+
+    - The above image shows shadowing exapmle.
+    - [exclusively for var] even if we get out of the block scope and try to log the value it will show us the value which was inside the block as var is inside the global scope and both are pointing to same memory location inside Global object. 
+    - for let and const situations are different.
+    
+    ![alt](./image24.png)
+
+    - So we can see there are two separate values of ab inside two diffrent scope.
+    as we know that let and const are block scopic.
+    - inside the block the same variable ab shodowed the value of ab which exists outside the block. 
+
+    - but if we log outside the block where block scope is ended it will take the script scope value of ab.
+    - concept of shadowing is not only for block scopes it for functions to remeber functions has this -{}.
+
+- What is illegal Shadowing?
+    - if you are shadowing a let variable with var then it is illegal shadowing
+    >[!CAUTION]
+    > let a=10; {var a=100 } //Illegal Shadwing will give syntax error "a is already been declared"
+
+    - if a variable is shadowing something it should not cross the boundary of its scope as we know var is in the global scope so it persists the value even after the block.
+    - var is a function scope if we do this inside a function there wont be any error.
+
+- you can shadow let using let, var using let(inside block)
+
+- Block Scope also follows lexical scope.
+
+- like it checks in its own block if it finds the value it logs or else it checks in its lexical parent.
+
+- examples of scope chaining in block scope.
+
+![alt](./image25.png)
+
+![alt](./image26.png)
+
+![alt](./image27.png)
+
+- scope rules are same for arrow and normal functions.
+
+
+
 
 
 
