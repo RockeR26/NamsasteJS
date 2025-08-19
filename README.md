@@ -220,14 +220,14 @@
 
 ![alt](./image22.png)
 
-- We can see in the above image is let and const are not part of global scope they are part of Block scope completely separate from global object where as var is inside the global scope.
+- We can see in the above image that let and const are not part of global scope they are part of Block scope completely separate from global object where as var is inside the global scope.
 
 - let and const are hoisted in a diffrent space that is reserved for this block "{}" and var is hoisted in the Global scope.
 
 -  let and const are not accessible outside this block so that is why they are called block scoped.
 
 - What is Shadowing ?
-    - if you have same variable outside the block it shadows the variable outside. executes with the value inside.
+    - if you have same variable inside the block it shadows the variable outside. executes the value inside.
 
     ![alt](./image23.png)
 
