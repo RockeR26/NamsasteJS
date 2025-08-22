@@ -268,6 +268,56 @@
 
 - scope rules are same for arrow and normal functions.
 
+## 10. Closures
+
+- This is what closure is.
+
+![alt](./image28.png)
+
+![alt](./image29.png)
+
+- A closure is a function bundled together with its lexical environment.
+
+- So in the above example function y is bind to the varibles of x. it forms a closure and it has access to its parent lexical scope.
+
+- Functions are really powerful in JS.
+    1. Functions can be assigned to variables.
+    2. Functions can be passed as parameters in a function
+    3. we can also return the function inside a function.
+
+![alt](./image30.png)
+
+- how will the function y behave as it is out of its lexical scope.when z will be called outside the function which doesnt have a reference of what a is . if we call z(); what will it print.
+
+- it will print 7 because when functions are returned they still maintains thier lexical scope. they remember where they were present. not only just the function was returned the whole closure was returned.
+
+
+- cool developers like to write like this instead of return y they write.
+
+![alt](./image31.png)
+
+- Closures comes with lot of corner cases.
+
+![alt](./image32.png)
+
+- Here output will be 100 beacuse when y is returning, it is returning with reference of "a" not the value of "a", if the value at "a" changes updated value will get diplayed as output when y is called.
+
+- There can be multiple layer of function it will be a function with refrence of its parent , parent's parent , it goes on till the top level and making it a closure.
+
+- Uses of Closure:
+    - Modern Design Pattern.
+    - Currying
+    - Fucntion like once
+    - memoize
+    - maintaining state in async world.
+    - setTimeouts
+    - Iterators
+    - many more.
+
+
+
+
+
 
 
 
