@@ -314,7 +314,27 @@
     - Iterators
     - many more.
 
+## 11. setTimeout + closures
 
+>[!NOTE]
+>This chapter will have some imp interview questions on setTimeout and closures.
+
+-setTimeout call back function forms a closure. it have access to its lexical scope. wherever the function goes it will have access to its lexical scope.
+
+-setTimeout takes the call back function and stores it to some place and attaches a timer to it and js goes on to the next line.
+when the timer expires it calls the function inside the timeout.
+
+![alt](./image33.png)
+
+Why it prints all 6
+
+- because in the callback function remembers the reference to i and when the loop breaks at i=6 because its not greater than 5 it prints all the value 1 by 1 to 6 which is the value of i now.
+
+- all the iterations point the same refernce after the timer is completed. and js doesnt wait for timer to complete then execute the loop ... it completes the looping before timer ends. and and when i checks for its value in its scope and its lexical scope it logs 6. as we know that var is function scoped not block scoped {} we could have use let instead.
+
+- if we want to fix it using var we can use iife or a function which we can call which wraps the set timeout ;just before the for loop ends. and i is passed as parameter to that function like the image below.
+
+![alt](./image34.png)
 
 
 
