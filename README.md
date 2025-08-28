@@ -336,6 +336,192 @@ Why it prints all 6
 
 ![alt](./image34.png)
 
+## 12. Interview Questions(JS/Closures)
+
+ 1. What are closures?
+    - Function along with its reference to its outer environment is closures.
+    - Function bundled together with its lexical scope.
+    - explanation : each js function has acess to its varibles and function present in its parent scope.
+    So even when this function is executed in a diffrent scope not in its original scope. it still rembers its outer lexical environment where it was present in the code.
+    - examples:
+
+    > function outer(){ <br>
+    >   var a=10;<br>
+    >    function inner(){<br>
+    >    console.log(a)<br>
+    >}
+    > return inner;<br>
+    >}<br>
+    >outer()();<br>
+
+2. What is the use of ()() in JS ?
+
+    - it is used to call the inner function which is returned.
+
+    - outer(); just this call will return the inner function.
+    - outer()(); will execute inner function at the same line itself. 
+    - we can also write like this. 
+        - const display = outer();// display will contain the return of inner function
+        - display();// this will call the inner function.  
+3. Will it be still closure if we change the postion of var a=10; ?
+
+    > function outer(){ <br>
+    >   
+    >    function inner(){<br>
+    >    console.log(a)<br>
+    >}
+    >   var a=10;<br>
+    > return inner;<br>
+    >}<br>
+    >outer()();<br>
+
+
+    - Yes, it will be still closure because position of the varibale doesnt matter until and unless it is in the lexical scope of inner function. but if its placed after return then the value will be undefined as when inner is executed value of a is not yet 10;
+
+    > 10  // it will be output of closure
+
+4. will it be still closure if we make it let ?
+
+    - Yes, it will be still closure because let also remembers the value in its lexical scope.
+
+5. What happens if we pass a parameter b in the outer function ?
+
+    > function outer(b){ <br>
+    >   
+    >    function inner(){<br>
+    >    console.log(a,b)<br>
+    >}
+    >   var a=10;<br>
+    > return inner;<br>
+    >}<br>
+    >outer("Hello")();<br>
+
+    - Yes, it will still be in closure. we can access both a and b inner function will have refrence of both. b is also part of outer environment. it will print 
+
+    > 10 "Hello"
+
+6. What happens if the outer function is nested inside outer function so will the inner function stil be closure of outer most function?
+
+    - Yes, As we know closure is function binding with its lexical scope, so yeah inner function will be in closure with the outermost function.
+
+7. What will happen if we create a conflicting variable in global scope like let a=100?
+   > function outer(b){ <br>
+    >   
+    >    function inner(){<br>
+    >    console.log(a,b)<br>
+    >}
+    >   var a=10;<br>
+    > return inner;<br>
+    >}<br>
+    > 
+    >let a=200;<br>
+    >outer("Hello")();<br>
+
+    - As, both the variables are declared in a diffrent scope they wont effect each other.
+    value of a will be still 10. if we comment out the line where var a=10; then it will search for a in its scope then in the parents scope finally will get the value of global scope.
+    - if a is not at all decalred then it will give reference error.
+
+8. Few advantages of closures ?
+
+    - module pattern
+    - data hiding and encapsulation.
+    - Function currying.
+    - in hogher order function memoize and once.
+
+9. What is data hiding how it works with closure?
+    - Suppose we have a variable we want to have data privacy over it so other functions and other variables cannot manuplate the value and cannot access it directly.
+![alt](./image35.png)
+
+    - So, here as we can see that any-one can change the value of counter as it is declared globally.
+
+    - here comes data hiding or data encapsulation into picture. we have to ensure that nobody in the program can change the value of counter.
+    - So, we want to ensure that nobody else except increase counter can only change the value of counter.
+    - to achieve that we will use closure, and will wrap it inside a function.
+
+    ![alt](./image36.png)
+
+    > [!WARNING]
+    > We have changed the variable name from counter to count as we have kept counter as function name.
+
+    - So here we return the incrementCounter() function so we can only modify the data with that function only or else it cant be modified in any way.
+
+    - When we call the counter1 function it will give us the value 1 incremented from the zero.
+10. so if we call the counter function again like counter2 = counter();
+
+    - this will create a new counter out of it. it wont persist the last called value of counter1 so , this counter can be resused. and it will start from 1 again.
+    - because both have diffrent scope this will again form closure with the new counter.
+    - wheneever this counter function will called it will create a new counter , and will start with output 1.
+
+11. Is this a good way to create a counter is it scalable? if you want to add decrement counter also.
+
+    - This is not a good way if we want to create a decrement counter also.
+    - We can use a Constructor function. inside it we can have separate incerement and decrement function.
+    
+    ![alt](./image37.png)
+
+    - We create two functions inside constructor this.incrementCounter and this.decrementCounter.
+
+    - Now this a goodway to implement it.
+    - Now if we want to create a new counter we just have to write counter1= new Counter(); this gives us access to the increment-decrement functions and still our data remains private.
+    - so when we write counter1.icrementCounter(); it increments the counter and same for decrementCounter();
+    - whenever we need to call our constructor we will use new Keyword and general naming convention of the constructor starts with a capital letter "Counter". 
+
+12. Disadvantages of closures?
+    - There can be over-consumption of memories when we use closures. 
+    - those closed over variables are not garbage collected efficiently.
+    - it will accumulate a lot of memory  if we create a lot of closures in our code. because those are not garbage collected till the program expires.
+    -if these are not handled properly it will lead to memory leaks. because the memory is accumulated over time it can also freeze the broswsers if not handled properly.
+
+13. What is a garbage collector ? 
+
+    - Grabage collector is a program in Browser or in JS engine, which frees-up the unutilised memory
+
+    -Js is high level programming language. In languages like C and C++ we(developers) have to allocate or deallocate memmory but in JS most of the work is done by JS engine.
+
+    - So Garbage collector takes out the  un-used variables and functions and frees up the memory. when ever JS engine finds out that these are no longer needed.
+
+14. What is the relation between closure and garbage collector?
+
+    - Lets learn it with an example.
+
+    > function outer(){ <br>
+    >    function inner(){<br>
+    >    console.log(a) ; <br>
+    >} <br>
+    >   var a=10 ;<br>
+    > return inner ;<br>
+    >}<br>
+    > const caller= outer();<br>
+    >caller();<br>
+
+    -So, ideally what would happen without closure the function outer will get called and after its called all its memory should be removed and garbage collected. but when its closure the var a in outer function will stay even after its execution is over. so it means it cannot free up the variable a.
+    - value of inner is now copied to caller so value of a is not freed even after it is executed, it will be free after sometime later when the caller will be called.
+
+    - But some of the modern browsers and JS engines like V8 in chrome they have smart garbage collection mechanism. when it somehow finds that some of the closure variables are not used or unreachable then the garbage collector collects it smartly.
+
+15. What is smart garbage collector ?
+
+    ![alt](./image38.png)
+
+- So like here when b is called only x is used in closure z is not used so , smart garbage collectors smartly remove z from the memory as its not used.
+
+- So if we pause our code at line no. 4 and try to access both z and x , z will give error because it was silently removed by smart garbage collector.
+
+![alt](./image39.png)
+
+- So z is no longer in the memory!, when it happened? when a was called it was removed by the Garbage collector. as it has no use.
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 
