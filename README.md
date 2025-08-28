@@ -510,6 +510,23 @@ Why it prints all 6
 ![alt](./image39.png)
 
 - So z is no longer in the memory!, when it happened? when a was called it was removed by the Garbage collector. as it has no use.
+
+>[!IMPORTANT]
+>There are two codes below both performs data hiding we will see how it works and we know from above which one is scalable.
+
+![alt](./image40.png)
+
+- So here we can see both are different apporoaches of data hiding or encapsulation. as we know from earlier that constructor one is more scalable in terms of adding features to the Counter.
+
+- So the major diffrence between two is how they are returned. So in constructor when we create a new variable and write counter1=new Counter, so here counter 1 is a object so new object counter 1 is created and the "this" keywords points to counter1 so we can access both the increment and decrement function like counter1.increment();/counter1.decrement(); and we want our object to access the helper functions we have to create function expressions or arrow functions normal function declarations dont work it works as a stand alone not a constructors method.
+
+- So in Second Scenario we can see the increment function is returned and this captured inside the counter 1 variable so when we call the counter variable (outside function) it assign the whole function with its lexical scope to the counter 1 variable so here counter1 is a function.
+so, if we want to execute the incerement function and update the value of count we have to call the counter1(); function. or if we dont want a new variable we can call it like this counter()(); it will increment the value.
+
+>Console(output): <br>
+>   `9` <br>
+>   `11`
+
     
 
 
