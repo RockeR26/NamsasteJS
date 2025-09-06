@@ -527,10 +527,60 @@ so, if we want to execute the incerement function and update the value of count 
 >   `9` <br>
 >   `11`
 
+## 13. Functions types
+
+- Function Statement
+    - it nothing but just writing keyword function and giving it a name.
+
     
+    ![alt](./image41.png)
 
+    - This way of creating function is called statement.
+- Function Expression.
+    - you can assign it to a variable , like you are initializing a value which is a function its unique feature in JS. this feaure is called function expression.
 
+- Both of these are way to write functions.
 
+- Difference between Function Expression and Statement.
+
+    - hoisting happens diffrently.
+    ![alt](./image42.png);
+
+    - So in function statement it can be callled anywhere from the code because during memory creation phase whole function put inside memory here function a is assigned to memory but for the function expression that is treated as a variable it remains undefined till it is initialised with function. so when b is called before it is initialized it gives an error that b is not a function.
+
+-  Function Declaration.
+    - Function statement is also known as Function decalaration.
+- Anonymous Function
+    - Function without a name is anonymous function.
+    - Anonymous Func. does not have thier own identity, it cannot be declared as a function statement.
+    - it can used in function expressions or when functions are used as a value.
+    ![alt](./image43.png)
+
+- Named function expression
+    - when we name the function used in expression.
+    - there is a corner case for named function expression. if call by the function name not by the variable it will give error.
+
+    ![alt](./image44.png)
+    - because when we are calling xyz it is out of its scope it is not present in outside scope. it is created as a local variable.
+
+- Parameter and Arguement.
+    - parameters and arguements are different.
+    - whatever some labels are passed inside function statements inside those parenthesis function a(n1,n2){} are called parameters
+    here n1 and n2 are parameters. 
+    - during dunction call whatever data we pass to fill the params is called arguements a(1,2); here 1 and 2 are arguements of function call a.
+    - parameters are local variables inside function we cannot access those outside the function.
+
+- First class functions.
+
+    - we can pass function as arguements we can recieve them inside functions using parameters this is possible in JS.
+    - We can also return a function from function as we know from closures.
+    - first class functions is the ability of the functions to be used as value and can be passed as an argument to another function and also can be returned from a function. 
+
+    - also known as functions are first class citizens.
+
+- What happens if we use function expression as let and const ?
+
+    - it is same as normal let and const variable stays in temporal dead zone until and unless initialized.
 
 
 
