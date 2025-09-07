@@ -582,14 +582,55 @@ so, if we want to execute the incerement function and update the value of count 
 
     - it is same as normal let and const variable stays in temporal dead zone until and unless initialized.
 
+## Callback Functions and Event listeners
 
+### Callback and Main Thread
 
+- As we know functions are first class citizen which allows functions to be passed into another function and this function is known as callback function.
 
+- CallBack functions are very powerful in JS it gives us a asynchronous world inside a synchornous single threaded language. 
 
+- you can call this function some time later in the code. when the outside function is called so it is called as callback function.
 
+![alt](./image45.png)
 
+- Here we use a callback function inside setTimeout which will execute after 5 secs. it wont stop the execution the code below. they will get logged and then after 5 sec timer will be logged.so callback gives a power of asychronity
 
+- Javascript has only one call stack which is called as main thread. everything inside the JS code is executed through call stack.
 
+- If any action blocks the call stack it is called blocking the main thread.we should never block our main thread. we should always use async operations which take time.
+
+### Event Listeners
+
+>[!IMPORTANT]
+> document.getElementByID("btn").addEvenlistener("c,lick",function(){})
+
+- The function inside add event listener is a call back function it is called whenever the button is clicked.
+
+- This will be stored somewhere it will come to call stack whenever the button is clicked.
+
+![alt](./image46.png)
+
+- Event listeners with closures.
+
+    - callback functions inside addEventlistener forms a closure with the function in which it is wrapped.
+
+    ![alt](./image47.png)
+    - here xyz function forms a closure with attachEventlistnerv function outside so xyz can access the data of its own and in its lexical scope.
+
+    > In Dev tools if we go to Elements Tab > At Bottom there is An event listener tab we can see all the event listeners attached to the specific item or in whole code.
+
+    ![alt](./image48.png)
+
+    - Here we can see that in the handler we have our callback function xyz whenever we click a button this handler is called. 
+
+    - And there is also something called scope it is the scope of the callback function. which has all the values of its lexical scope which can be accessed by xyz. like attachEventListner and Global are part of its lexical scope.
+
+- Garbage Collectors and removeEventListener.
+    - why do we need to remove eventlistners?
+        - Event listners are heave they take good amount of memory whenever you attach a event listner it forms a closure even when the callstack is empty but this program is not freeing up the memory.that is why we remove event listners when we are not using them.
+        - When there are lot of events in the page the page will run little slow because of so many closures sitting in the memory consuming memory.
+        - Good Practice is to free up or remove the eventListeners when we are not using it.when we remove these event listners this memory will freed up all this varibles which are held by closures will be garbage collected.
 
 
 
