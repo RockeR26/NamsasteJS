@@ -582,7 +582,7 @@ so, if we want to execute the incerement function and update the value of count 
 
     - it is same as normal let and const variable stays in temporal dead zone until and unless initialized.
 
-## Callback Functions and Event listeners
+## 14. Callback Functions and Event listeners
 
 ### Callback and Main Thread
 
@@ -632,11 +632,79 @@ so, if we want to execute the incerement function and update the value of count 
         - When there are lot of events in the page the page will run little slow because of so many closures sitting in the memory consuming memory.
         - Good Practice is to free up or remove the eventListeners when we are not using it.when we remove these event listners this memory will freed up all this varibles which are held by closures will be garbage collected.
 
+## 15. Event Loop.
 
+- Overview
+    - JS is a synchronous single threaded language it has 1 call stack.
+    - All the code of JS is executed inside the call stack.
+    - Whenever any JS program is run a Global Execution context is created.and the GEC is pushed into the call stack.
+    - In case of a function invocation a Execution context is created in call stack then the function execution will happen.
+    - If there is nothing more to execute inside the function the function EC is removed same happens for GEC if all the code is executed from top to bottom GEC is removed.
+- Call stack
+    - Main Job of call stack is to execute all the code inside it.it does not waits it immediatly executes if you give anything to call stack.
 
+    - Call stack doesnt have a timer so it cannot execute asychronus or timed task
+    - Call stack is inside JS Engine. these are wrapped inside browser.
 
+- Browswer
+    - It is the most remarkable creation of mankind.
+    - it has a JS Engine which has a call-stack, it has timer , Local Storarge Bluetooth, Geolocation, Address bar, fecth external API, UI etc.
 
+    ![alt](./image49.png)
 
+    - Suppose we want to access these other faetaures in our JS code  inside call stack. let us see how we can do that.
+
+- Web APIs
+    - To access all those features we need Web APIs
+
+    ![alt](./image50.png)
+
+    - these are not part of JS they are features of Browsers.
+    - Browser make these available  inside JS engine to use these faetures.
+        - Timer-setTimeout()
+        - Dom APIs - document....
+        - fetch - fetch(url)
+        - localStorage - localStorage()
+        - console - console.log() and others
+        - location- www.google.com 
+    - We get these features inside our callback using global object.
+
+    - Global Object is this window keyword.
+    - Browser gives this features to JS engine using keyword known as window.
+    - we can use these Web APIs like 
+    > window.setTimeout()
+    - we dont write window everywhere because it is in global object or it is in global scope.
+    - window wraps all this web APIs functions inside window object gives the access to call stack
+
+    - Web APIs like timers etc. usually registers the callback and waits for it execute it but we know every function executes in call stack so when the timer is over it will be sent to call stack let's know how? 
+
+- Event Loop & Callback Queue.
+    - The callback present in Web API cant directly go to call stack.
+    - It will go to the callstack via callback queue.
+    - when the timer expires Callback is pushed to `Callback Queue`
+    - The Job `Event Loop` is to check the callback queue and Call stack if its empty push the item into call stack.
+
+    - When the callback function reaches the call-stack it creates a execution context for itself.executes the code inside it. after finishing the execution context is removed.
+
+    - For Event listners WebAPI a registers the callback with the event like click or keydown etc. so whenever the it clicked or event happens it pushes the callback to callback queue and when Event Loop sees call stack is empty and there is a CB waiting in CB-Queue it pushes it into call-stack.
+
+    - Event loop has only one job continously monitor Call Stack and Callback Queue. if the callstack is empty and we have a callback inside the CB-Queue then it just pushes the Callback to the Call-Stack and call stack executes it as soon as it gets it.
+
+    - We need callback queue because if the user executes the event 5-6 times there will be 5-6 callbacks inside the Callback-queue. so event loop will send them one by one so the execute in order because there can be many events but js has only one call stack it should be better if its executed in order.
+
+- Microtask Queue
+    - So whenever we have a fetch function or a promise it is always kept in microtask Queue after it is resolved or rejected.
+
+    - Microtask Queue is similar to the callback Queue but it has higher priority so if we have callback function in both CB-queue and MT-queue Eventloop gives the callback of MT-Queue priority and push it to call-stack first.
+
+    - Callback function of promises&Mutation Observers will be in Microtask Queue.
+
+    - Browser does a lot of things at a time JS Engine only does one task at a time.
+
+    - task of the event loop is continously check when call stack is empty and to check if there is any callback in both the queues if there is it will schedule the task as per priority.
+    `Priority- Microtask-Queue > CallBack-Queue`
+
+    -  As we know event loop gives microtask more priorty so if the microtask in queue replicates more and more then callback in CBqueue will not get oppurtunity to execute for a long time this is called `starvation` starvation of task inside callback queue .
 
 
 
