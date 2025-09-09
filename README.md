@@ -706,6 +706,83 @@ so, if we want to execute the incerement function and update the value of count 
 
     -  As we know event loop gives microtask more priorty so if the microtask in queue replicates more and more then callback in CBqueue will not get oppurtunity to execute for a long time this is called `starvation` starvation of task inside callback queue .
 
+## 16. JS Engine
+
+- Js is Everywhere, it is inside browser, it can run inside server , Robots, smart watches, Smart phones, light bulb. 
+
+- `JavaScript Runtime Environment (JRE)` makes it possible 
+
+- JRE is like big container which is required to run JS code.
+
+- It has JS Engine , set of APIs , EventLoop , CB-queue, MT-queue.
+
+- JS Engine is the heart of JRE.
+
+- Browsers and Node.js can run your JS code because it has JRE 
+>[!NOTE]
+>Node.js is known as Open Source JS Runtime.it can run JS outside the browser.
+
+![alt](./image51.png)
+
+- You can find all sort of APIs in JRE as per the device or requirement.
+
+- Every Browser has diffrent JS engine 
+    - Microsoft - Chakra.
+    - Chrome - V8 (also used in Node.js Deno)
+    - Firefox - SpiderMonkey
+
+- Most important protocall for JS engine is followiing the standards like ECMA Script standards.
+
+- JS Engine Architecture
+    - JS Engine is not a machine it is not hardware its just a program.
+    - Google's V8 Engine is written in Low Level Language C++.
+
+    - JS Engine takes in code and this code is passed through 3 stages.
+
+    ![alt](./image52.png)
+
+- Parsing Phase
+    - Code is broken down into tokens
+    - And there is something called syntax parser job of it is to take the code and convert it into `AST(Abstract Syntax Tree)`
+
+    ![alt](./image53.png)
+
+    - this the ast tree for the code in left.
+    - AST is passed to compilation phase.
+
+- Compilation & Execution phase
+    - Compilation and Execution Goes hand in hand.
+    - JS has something called `JIT Just in time Compilation`.
+    - Interpretter: code is executed line by line. (Fast)
+    - Compiler: compiles the code  before executing into optimized form.then it is executed.(Efficient).
+    - JS can be both interpretted and compiled language it depends on JS engine.
+    - JIT compilation use the best of both worlds it uses interpreter as well as compiler.
+    - AST is moved into the interpretter then it converts the code to byte code which is moved to execution. while it is doing so it takes the help of the compiler to optimize the code.
+
+    - So the compiler basically talks with interpreter when code is interpreted line by line compiler tries to optimize the code as much as it can.it is not a 1 phase process it can happen in multiple phases.
+
+    - All the JS has their own algorithm of doing it.The job of compiler is optimize the code as much as it can on runtime that is why it called JIT
+
+    - the byte code is goes to execution phase.
+    
+    - Execution phase is not posiible without two major components in JS Engine.
+
+    - those two are memory heap and call stack.
+
+    ![alt text](image54.png)
+
+    - Inside Memory Heap all the memory is stored. it is in continous sync with call stack Garbage collector etc.
+
+    - We have Grabage collector it tries to free up the space from memory . whenever the function is not being used. so basically it collects all the unused code and sweeps it. it uses an alogorithm called Mark & sweep(H/w).
+
+    - there are also many forms of optimiziations which is done on code by compiler.
+    - Inlining , copy elision, Inline caching.
+
+    - Googles V8 engine is the fastest among all created.
+    
+    ![alt text](image55.png)
+
+    - V8 uses a Garbage Collector called Orinoco which uses mark and sweep.
 
 
 
