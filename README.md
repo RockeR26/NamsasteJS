@@ -603,7 +603,7 @@ so, if we want to execute the incerement function and update the value of count 
 ### Event Listeners
 
 >[!IMPORTANT]
-> document.getElementByID("btn").addEvenlistener("c,lick",function(){})
+> document.getElementByID("btn").addEvenlistener("click",function(){})
 
 - The function inside add event listener is a call back function it is called whenever the button is clicked.
 
@@ -784,9 +784,39 @@ so, if we want to execute the incerement function and update the value of count 
 
     - V8 uses a Garbage Collector called Orinoco which uses mark and sweep.
 
+- Mark And Sweep Algorithm.
+    - Mark and sweep algorithm are used inside Garbage collectors as startegy to reclaim the memory which is un-used or no longer accessible. It opereates in two diffrent phases.
 
+    - Mark Phase
+        - The garabage collector start from a set of `roots` which is an object directly acessed by program (ex. Global variables, objects on call-stack,currently executing function's local varioables.)
 
+        - the garbage collector traverses all the object reachsable from these roots marking them as "reachable" or live . this is done using a graph traversal algorithm like depth-first search to mark all the objects directly or indirectly refrenced from roots.
 
+    - Sweep Phase
+        - After the mark phase Garbage collector scans the entire memory heap and identifies the object that are unmarked. these unreacheable objects are called garbage and thier memory is freed. the reachable object have thier marked bits reset for the next garbage collection cycle.
+
+    - This algo ensures that the memory which is not reacheable by any part of program is cleared or reclaimed. Modern JS engines use variations of Mark and Sweep approach, optimizing its performance but relying on same fundamental concept.
+
+## 17. setTimeout Trust issues
+
+- SetTimeout with a delay of 5 secs not always wait for 5 sec usually it can be more than 5 sec.
+- Beacuse until and unless GEC is removed from call-stack callback registered for setTimeout cannot execute and it remains in the callback queue.
+
+![alt text](./image56.png)
+
+- this is known as concurrency model in JS.
+- Dont block the main thread , if the callstack is not empty it cannot process any other event.
+
+- Concurrency model simulation code.
+    - We will take the help of while loop which will block the main thread upto 10 sec.
+
+    ![alt text](./image57.png)
+
+- setTimeout doesnt gurantees that it will wait only for 5 sec but it gurantees that it will wait atleast for 5 sec.
+
+-setTimeout of delay 0 ms is still asynchronous it will execute all the code in GEC then remove the GEC then the callback of this setTimeout will be executed.
+
+- if we want to execute any code at the last of the page then we can use something as settimeout with delay 0.
 
 
 
