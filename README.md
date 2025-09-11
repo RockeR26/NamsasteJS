@@ -818,6 +818,88 @@ so, if we want to execute the incerement function and update the value of count 
 
 - if we want to execute any code at the last of the page then we can use something as settimeout with delay 0.
 
+## 18. Optional Chaining (not Namaste JS)
+
+- Whenever we want to extract properties from the object or we recieve data from an api in the form of an object we usully use .operator to extract the exact data.
+
+- for example we have a user object which we recieve from an api which has many objects of persons insideit.
+> console.log(user.person1.name) or console.log(user.person1.role) etc.
+
+-  so what if we want to access something `user.person3.name` from the object but we dont know object  paerson3 exists or not if we try to access that it will give error
+
+>[!ERROR]
+>Uncaught TypeError: Cannot read properties of undefined (reading 'age')
+
+- So to save us from this comes optional chaining (?.)if person3 exists it should return the data and if it doesnt it will return undefined.
+
+>[!IMPORTANT]
+>user?.person3?.age
+
+- here it checks that there is user object or not then it checks person3 exists or not if exists it will log its age if age value is there or it will be undefined.
+- We can aslo use if-else, ternary-operators, && operators. but this is more concise.
+
+![alt text](./image58.png)
+
+- We can also access the age value like this 
+> ?.[old] or ?.["age"]
+
+- [old] part is a computed property accessor. This syntax is used to access an object's property where the property name is determined dynamically at runtime, rather than being a fixed identifier. 
+
+
+- we can also log something else instead of undefined a default value when data is not there.
+
+>[!INFORMATION]
+>console.log(user?.person3?.age??"N/A");
+
+- It will log N/A instead of undefined.
+
+## 19. Higher Order Functions.
+
+- One of the most Important part of JS is Functional Programming.
+
+- What is Higher Order Function.
+    - Function which takes function or returns fucntions from it is known as Higher order Function. 
+
+![alt text](./image59.png)
+
+- Here x is Higher order function.
+
+- whenever you write program always remember `DRY`
+
+>[!IMPORTANT]
+> Dont Repeat Yourself (DRY)
+
+- Why functional coding is important.
+    - each of the functions has one responsiblity.
+    - functional programming has cruicial features like reusablity, modularity, higher order Functions,
+
+- Polyphill of map
+- We have array of `radius` and a function `area` which takes 1 radius as argument and finds the area of circles.
+- we can write map like this.
+> const areaofCircles = radius.map(area);
+
+- As, we know that map function is written like array.map.(()=>{}), so here in array we have array of radiuses. and callback function is the area function which takes 1 radius each time and returns a calculated array of area of circles.
+
+- polyphil means easier version or behind the scenes of the function which we are using like map function takes an array and callback and gives a enhanced version of array.
+
+![alt text](./image60.png)
+
+- calculate is the polyphill for map we can call it like.
+
+> calculate(arr,cb);
+
+- you might say that there no (.) here like array.map so to do that we can do like this.
+
+![alt text](./image61.png)
+
+- So we link the calculate function to array prototype. so any array can access this calculate function.
+
+- and now we will pass one argument only the callback so, when we write radius.calculate each radius is pass as this inside the function.
+
+- now the exact polyphill of the function map is ready with the help of higher order functions.
+
+- and these all are possible because functions are first class citizens in JS.
+
 
 
 
