@@ -900,6 +900,121 @@ so, if we want to execute the incerement function and update the value of count 
 
 - and these all are possible because functions are first class citizens in JS.
 
+## 20. Deep Copy And Shallow Copy (Not in Namaste JS)
+
+- First we will learn how to copy an object. so how we usually copy values is.
+
+> let a=10;<br>
+> let b=a;
+
+
+- but for object this doesnt work so if we do. 
+
+> let a={name:"Sagnik",age:26}
+> let b=a;
+
+- So, if we change the b.age to 27 it also changes the a.age. because when we write b=a b actually refrences value of object a not really copies it just points at so a and b points at the same object.
+
+
+- Shallow Copy
+    - So, how do we copy object a to b then we cam write like this.
+
+    > let a={name:"Sagnik",age:26}
+    > let b={...a};
+
+    - so how its done is {...a} is the using spread operator it spreads the object data and the spreaded object value is asigned to variable b.
+
+    - we can copy using Object.assign() method to copy the data.so here we see Object keys,values are assigned to an new empty object. using Object.assign.
+
+    > let a={name:"Sagnik",age:26}
+    > let b=Object.assign({},a);
+
+    - This type of copies are known as shallow copy why ? beacuse when we created a level deep object or nested the object with multiple levels of objects. then it creates problem.
+
+    - So if we write something like this.
+
+    > let a={name:"Sagnik",age:26, social:{facebook:true,twitter:{ac1:true,ac2:false}}} <br>
+    > let b={...a};
+
+    - So here when our oject has multiple branches or you can say a nested object inside it. so the spread operator and the Object.assign () method both copy only the top level the inner level still gets refrenced.
+
+    - for example if we try to change the b.social.ac2=true it will also change the value in object a but if we change the age or name it wont affect a so only the nested objects are refrenced so this type of copy is called shallow copy beacause when we spread the a the level 1 is copied exactly but nested levels are copied like when we did a=b it just got refrenced because it was not spread and value of social of b is pointing the same social as a.
+
+- Deep copy
+
+- So as the name suggests it completely copies the object value not the reference even that of its nested level is copied fully. one of the easy to do that is. 
+
+    > let a={name:"Sagnik",age:26, social:{facebook:true,twitter:{ac1:true,ac2:false}}} <br>
+    > let b=JSON.parse(JSON.stringify(a));
+
+- it is like coverting JS object to JS object string 
+and then again parsing it to make it to object. as we know that string value is not refrenced so it gets copied by vlue and then it gets parsed to become JS object. so thats why it also copies the nested values of object.
+
+and their is another easy way but it is not available in node JS it is know as structuredClone()
+
+  > let a={name:"Sagnik",age:26, social:{facebook:true,twitter:{ac1:true,ac2:false}}} <br>
+    > let b=structuredClone(a);
+
+This creates a deep copy of the object.
+
+- but for interview these wont work , we have to write the deep copy method in recursive function.
+
+![alt text](./image64.png)
+![alt text](./image65.png)
+
+- so at first create a function name `deepCopy` we pass obj as parameter to accept the object a as arguement.
+then we check if the type of is passed in obj is not object or null then its ruteruned as it is. if that condition doesnt satisfies then we can assume that our data is either object or array so we create a variable output to store our deep copied value. so we first assign it either blank array or object by checking it with ternery operator and isArray method. the we find out keys of our object or indexes of our array Object.keys gives us array of keys or indexes of the data passed to it.so we will map through the keys and for each key value we will create same keys for output. but we need to check again that if the key has value of  object or it is just an primitive data if it is a primitive data like number or string it gets returned in first condittion so we will pass the value of that key to deepCopy function to check this and copy the data to the key like it is returned. so here when name key is checked it is string so it is returned as it is to the key name but social property has a  nested object inside so it will again passed to deepCopy Function. 
+
+## 21. Map Filter Reduce
+
+- map(),filter(),reduce are higher order functions.
+- map()
+    - map is used to transform an array. 
+    - suppose you want to tranform each and every element of array and get a new array. like double of each element.
+
+    > array.map(cb)
+
+    - you have to write like this arry then `.` then map and we have to pass a function inside it. behind the scenes it will run cb for each element in array and we can pass that as arguement.
+
+    >[!INFORMATION]
+    > We convert the Number into binary by using this menthod 
+    > <br> num.toString(2);
+
+    - We can also pass anonymous function inside the map or we can also use function delaration or the arrow functions as parameters of map.
+
+- filter
+    - filter is used to filter the values of array.
+    - Suppose you want to filter the elements on a basis of condition. it will return a array of elements satisfying that condition.
+
+    > array.filter(cb)
+
+    - same structure as map all things are same except the functionality.
+
+    ![alt text](./image63.png)
+
+    - So we can see that map and filter can be chained together.
+
+    
+
+- reduce 
+    - reduce is used when we have to take all the value of array and come up with one value.like sum of all the elents in array,largest no. in array.
+
+    > array.reduce((acc,curr)=>{});
+
+    - so, reduce is bit diffrent. so we have to pass a function with a callback which has two arguments current and accumulator.
+    curr representing the values of each elements. and accumulator accumulates the result what we have to get from elements of the array. we also pass an initial value of accumulator to reduce parameter. 
+
+
+    ![alt text](./image62.png)
+
+
+
+
+
+
+
+
+
 
 
 
