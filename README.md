@@ -1007,6 +1007,37 @@ then we check if the type of is passed in obj is not object or null then its rut
 
     ![alt text](./image62.png)
 
+## 22 . Callback Hell (Season 2)
+
+- Callback Good Bits.
+    - callbacks are super important while writing asynchronous code.
+
+- Callback Bad Bits.
+
+    - When we have a large code base and they have so many APIs , and APIs are dependent on one another we end up getting into call back hell.
+
+    ![alt text](./image66.png)
+
+    - `Callback hell` is like when we have callback inside callback it can go any level deep also if has APIs inside it maybe if blocks etc. that can give performance issues technically it blocks the main thread  with lots of callback. code starts to grow horizonaly instead of vertically.
+
+    - This type of codes are Unreadble and Unmaintainable
+
+    - This srtucture creates a pyramid like structure so its called as pyramid of doom.
+
+    - when we have a callback function we are passing the authority of executing that function to its outer function which can be written by other Devs.
+
+    - So, execution of Our function is not sure if it is passed to another function which is an diffrent code written by someone else.
+
+    - this is a Important problem we face when we use callback. It is called `Inversion of Control`
+
+    - `Inversion of control`
+        - We lose control of our code when we pass our code as a callback function into another function now we have lose control over our code's execution it solely depends on the execution of the outer functions execution that our function will execute correctly or not.
+
+
+
+
+
+
 
 
 
