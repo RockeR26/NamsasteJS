@@ -1047,31 +1047,21 @@ then we check if the type of is passed in obj is not object or null then its rut
 - when we get data inside the object when promise is completed it will automatically 
 
 
-<!-- Centered flex row -->
-<div align="center">
-
-  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" >
-    <span>
-      <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" alt="LinkedIn" width="100"><br>
-      <strong>LinkedIn</strong>
-    </span>
-  </a>
-
+<p align="center">
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/">
+    <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" alt="LinkedIn" width="100">
+    <br><strong>LinkedIn</strong>
+  </a>&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/ParthPipermintwala">
-    <span>
-      <img src="https://nate-wilcox.github.io/images/github.gif" alt="GitHub" width="100"><br>
-      <strong>GitHub</strong>
-    </span>
-  </a>
-
+    <img src="https://nate-wilcox.github.io/images/github.gif" alt="GitHub" width="100">
+    <br><strong>GitHub</strong>
+  </a>&nbsp;&nbsp;&nbsp;
   <a href="mailto:parthpipermintwala9@gmail.com">
-    <span>
-      <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" alt="Email" width="100"><br>
-      <strong>Email</strong>
-    </span>
+    <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" alt="Email" width="100">
+    <br><strong>Email</strong>
   </a>
+</p>
 
-</div>
 
 
 
