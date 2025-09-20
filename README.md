@@ -1047,7 +1047,7 @@ then we check if the type of is passed in obj is not object or null then its rut
 - when we get data inside the object when promise is completed it will automatically 
 
 
-<div align="center" border="0" cellpadding="10" cellspacing="0" >
+<div align="center" border="0" cellpadding="10" cellspacing="0" display="flex">
   <div style="width:100%">
     <div align="center" style="border: none;">
       <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" >
