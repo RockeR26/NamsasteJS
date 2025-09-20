@@ -1046,6 +1046,12 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 - when we get data inside the object when promise is completed it will automatically 
 
+<style>
+    tr,td,table{
+        border:"none"
+    }
+</style>
+
 <table align="center" border="0" cellpadding="10" cellspacing="0" >
   <tr style="width:100%">
     <td align="center" style="border: none;">
