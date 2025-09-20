@@ -1047,31 +1047,29 @@ then we check if the type of is passed in obj is not object or null then its rut
 - when we get data inside the object when promise is completed it will automatically 
 
 
-<div align="center" border="0" cellpadding="10" cellspacing="0" display="flex">
-  <div style="width:100%">
-    <div align="center" style="border: none;">
-      <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" >
-        <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100"  alt="LinkedIn" />
-      </a>
-      <br>
-     <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" ><strong >LinkedIn</strong></a>
-  </div>
-    <div align="center">
-      <a href="https://github.com/ParthPipermintwala">
-      <img src="https://nate-wilcox.github.io/images/github.gif" width="100"  alt="GitHub"/>
-      </a>
-      <br>
-       <a href="https://github.com/ParthPipermintwala"> <strong>GitHub</strong></a>
+<!-- Centered flex row -->
+<div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap;">
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" style="text-decoration:none; text-align:center;">
+    <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" alt="LinkedIn" width="100" style="display:block; margin:0 auto;">
+    <div style="margin-top:6px;"><strong>LinkedIn</strong></div>
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/ParthPipermintwala" style="text-decoration:none; text-align:center;">
+    <img src="https://nate-wilcox.github.io/images/github.gif" alt="GitHub" width="100" style="display:block; margin:0 auto;">
+    <div style="margin-top:6px;"><strong>GitHub</strong></div>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:parthpipermintwala9@gmail.com" style="text-decoration:none; text-align:center;">
+    <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" alt="Email" width="100" style="display:block; margin:0 auto;">
+    <div style="margin-top:6px;"><strong>Email</strong></div>
+  </a>
+
 </div>
-    <div align="center">
-      <a href="mailto:parthpipermintwala9@gmail.com">
-        <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" width="100" alt="Email"/>
-      </a>
-      <br>
-       <a href="mailto:parthpipermintwala9@gmail.com"> <strong>Email</strong></a>
-    </div>
-  </div>
-</div>
+
 
 
 
