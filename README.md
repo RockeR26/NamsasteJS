@@ -1050,21 +1050,21 @@ then we check if the type of is passed in obj is not object or null then its rut
 <!-- Centered flex row -->
 <div align="center">
 
-  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" style="text-decoration:none;">
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" >
     <span>
       <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" alt="LinkedIn" width="100"><br>
       <strong>LinkedIn</strong>
     </span>
   </a>
 
-  <a href="https://github.com/ParthPipermintwala" style="text-decoration:none;">
+  <a href="https://github.com/ParthPipermintwala">
     <span>
       <img src="https://nate-wilcox.github.io/images/github.gif" alt="GitHub" width="100"><br>
       <strong>GitHub</strong>
     </span>
   </a>
 
-  <a href="mailto:parthpipermintwala9@gmail.com" style="text-decoration:none;">
+  <a href="mailto:parthpipermintwala9@gmail.com">
     <span>
       <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" alt="Email" width="100"><br>
       <strong>Email</strong>
