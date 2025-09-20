@@ -1046,7 +1046,6 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 - when we get data inside the object when promise is completed it will automatically 
 
-
 <p align="center">
   <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/">
     <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100" alt="LinkedIn"/>
@@ -1066,7 +1065,6 @@ then we check if the type of is passed in obj is not object or null then its rut
     <strong>Email</strong>
   </a>
 </p>
-
 
 
 
