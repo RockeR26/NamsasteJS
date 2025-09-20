@@ -1048,7 +1048,7 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 
 <!-- Centered flex row -->
-<div>
+<div align="center">
 
   <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" style="text-decoration:none;">
     <span>
