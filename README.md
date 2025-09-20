@@ -1034,8 +1034,43 @@ then we check if the type of is passed in obj is not object or null then its rut
         - We lose control of our code when we pass our code as a callback function into another function now we have lose control over our code's execution it solely depends on the execution of the outer functions execution that our function will execute correctly or not.
 
 
+## 23. Promises.
 
+- Promises are used to handle async operations in JS, it is used to solve the issues we were facing while using callbacks.callbacks are not aconfident way of writing code.
 
+- if a api returns a promise it means it returns an object with some data value in it. and this data value will hold what the proimise is retuning after its completed.
+
+- At first the data value will be undefined when the promise is completed the value will be updated inside the object as promises are asychronous.
+
+- to add callback to the promise object there is then function comes with promis, when promise is completed we will pass callback that will have code of what should happen.
+
+- when we get data inside the object when promise is completed it will automatically 
+
+<table align="center" border="0" cellpadding="10" cellspacing="0" >
+  <tr style="width:100%">
+    <td align="center" style="border: none;">
+      <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" >
+        <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100"  alt="LinkedIn" />
+      </a>
+      <br>
+     <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" ><strong >LinkedIn</strong></a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ParthPipermintwala">
+      <img src="https://nate-wilcox.github.io/images/github.gif" width="100"  alt="GitHub"/>
+      </a>
+      <br>
+       <a href="https://github.com/ParthPipermintwala"> <strong>GitHub</strong></a>
+    </td>
+    <td align="center">
+      <a href="mailto:parthpipermintwala9@gmail.com">
+        <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" width="100" alt="Email"/>
+      </a>
+      <br>
+       <a href="mailto:parthpipermintwala9@gmail.com"> <strong>Email</strong></a>
+    </td>
+  </tr>
+</table>
 
 
 
