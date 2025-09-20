@@ -1042,10 +1042,104 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 - At first the data value will be undefined when the promise is completed the value will be updated inside the object as promises are asychronous.
 
-- to add callback to the promise object there is then function comes with promis, when promise is completed we will pass callback that will have code of what should happen.
+- to add callback to the promise object there is `.then` function comes with promis, when promise is completed we will pass callback that will have code of what should happen.
 
-- when we get data inside the object when promise is completed it will automatically 
+- we get data inside the object when promise is completed it will automatically update the data inside the object as well as inside the callback of promise.then `.then`.
 
+![alt text](image67.png)
+
+- like in this picture when createOrder(cart) promise is resolved the data recieved as orderDetails will be passed to promise.then() callback.  
+
+- We are attaching a function to the promise object earlier we were passing the function as callback. in the promise we have control over the code it gives us the gurantee that whenever the object is filled with data then it will call our callback inside .then() only once not more than that. 
+
+- `fetch` is a browser API to make external calls. fetch functions returns us a promise.
+
+![alt text](image68.png)
+
+- the above image shows a promise object when it just called. there are two things inside promise object 
+    1. state - it will store what sate promise is rightnow initially it will be `pending` once we get data back it will change to fulfilled state. 
+    2. result - it will store whatever data promise returns initially it is undefined.
+
+>[!WARNING]
+> There is a small inconsistency in chrome browser when we console.log the promise object is shows the state as pending first but when we click inside it shows fullfilled. because when it is logged it is pending but when we check it goes to fullfilled state.
+
+![alt text](image69.png)
+
+>[!INFORMATION]
+> when result populated in promise it displays as Response when we click on response in the body it shows our data in readable stream we have to covert the data to json to get the data from readable stream.
+
+![alt text](image70.png)
+
+- the data parameter in callback here will get the response data what we saw in the promiseResult value.
+
+- Promise objects are special, this special objects brings lots of trust in transaction. The JS gurantees that promise will be only Resolved once either success or failure `fullfilled` or `rejected`
+
+- Promise objects are immutable , we can just pass it here and there in our code no one can mutate the value of promise object.
+
+- Interview - What is promise?
+    - A promise is an object representing eventual completion or faliure of an asynchronous operations.
+
+- Promise Chaining
+
+![alt text](image71.png)
+
+- The data is passed down the chain. from each level if the above promise is fullfilled .then() callbacks run one by one. always return the function that needs to be executed inside the callback so the next chained .then will get its data.
+
+- so this prevents our code from growing horizontally , also some developers prefres to write this in arrow function this helps to reduce few lines.
+
+- Interview - Why promises are important.
+
+    - It solves the two major problems of callback while executing a asynchronous operation. 
+        1. it helps to resolve the callback hell using promise chaining which helps program to scale vertically instead of increasing horizontally makes it more readable.
+        2. it helps to resolve inversion of control it ensures or gurantees that our program code will run only once when we get the data inside our promise object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/">
+    <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100" alt="LinkedIn" />
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/ParthPipermintwala">
+    <img src="https://nate-wilcox.github.io/images/github.gif" width="100" alt="GitHub"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:parthpipermintwala9@gmail.com">
+    <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" width="100" alt="Email"/>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/"><strong>LinkedIn</strong></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/ParthPipermintwala"><strong>GitHub</strong></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="mailto:parthpipermintwala9@gmail.com"><strong>Email</strong></a>
+</p>
+
+
+
+<<<<<<< HEAD
 <p align="center">
   <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/">
     <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100" alt="LinkedIn"/>
@@ -1065,6 +1159,10 @@ then we check if the type of is passed in obj is not object or null then its rut
     <strong>Email</strong>
   </a>
 </p>
+=======
+
+
+>>>>>>> cda48a4 (lesson 23)
 
 
 
