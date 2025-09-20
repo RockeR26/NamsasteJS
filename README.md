@@ -1048,19 +1048,21 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/" style="display: inline-block; text-align: center; width: 120px;">
+  <a href="https://www.linkedin.com/in/parth-pipermintwala-403a82367/">
     <img src="https://cdnl.iconscout.com/lottie/premium/thumb/linkedin-6875061-5607637.gif" width="100" alt="LinkedIn"/>
-    <br/>
+    <br />
     <strong>LinkedIn</strong>
   </a>
-  <a href="https://github.com/ParthPipermintwala" style="display: inline-block; text-align: center; width: 120px;">
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/ParthPipermintwala">
     <img src="https://nate-wilcox.github.io/images/github.gif" width="100" alt="GitHub"/>
-    <br/>
+    <br />
     <strong>GitHub</strong>
   </a>
-  <a href="mailto:parthpipermintwala9@gmail.com" style="display: inline-block; text-align: center; width: 120px;">
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:parthpipermintwala9@gmail.com">
     <img src="https://moein.video/wp-content/uploads/2022/12/Gmail-Logo-GIF-Gmail-Icon-GIF-Royalty-Free-Animated-Icon-GIF-1080px-after-effects-project.gif" width="100" alt="Email"/>
-    <br/>
+    <br />
     <strong>Email</strong>
   </a>
 </p>
