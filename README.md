@@ -1092,3 +1092,46 @@ then we check if the type of is passed in obj is not object or null then its rut
     - It solves the two major problems of callback while executing a asynchronous operation. 
         1. it helps to resolve the callback hell using promise chaining which helps program to scale vertically instead of increasing horizontally makes it more readable.
         2. it helps to resolve inversion of control it ensures or gurantees that our program code will run only once when we get the data inside our promise object.
+
+## 24. Promises (Advanced)
+
+- Create your Own Promises.
+    - we use new keyword and Promise constructor it takes a function which has resolve and reject function as parameter, This is given by Javascript.
+
+    - promise should return either resolve or reject.
+
+    ![alt text](image72.png)
+
+- Error Handling 
+    - Always Write code to handle errors gracefully.
+    - whenver promise is resolved .then function is called when the promise is rejected `.catch()` is used to catch  the errors. it is used to handle the errors gracefully.
+
+    ![alt text](image73.png)
+
+- Promise Chaining
+    - we usually chain promises if we have multiple promises linked to one another using .then() so for the next child to access the data we have to either return the data or we have to return the promise.
+
+    ![alt text](image74.png)
+
+    - if we dont return we have to write like this. but this can lead to promise hell same the horizontal increase of code.
+    
+     ![alt text](image75.png)
+
+    - Promise API designed in such a way that we dont fall in promise hell . it creats a chain like structure and data is passed to the next chain.
+
+    - Whenever there is error in the promise chain the .catch() method 
+
+    - .catch will check if there is any error over the this .catch() block the items below this will be still executed. like this example below.
+
+    ![alt text](image76.png)
+
+
+    - It is developers idea or projects reqiurement or logic requirement where this catch can be placed.
+
+    - This chaining help us to get rid of callback hell
+- Imp Points
+- We cannot call resolve twice it is resolved only once.
+- You attach a callback function not pass we are attaching the callback with .then()
+
+
+     
