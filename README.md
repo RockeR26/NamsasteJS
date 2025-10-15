@@ -1133,5 +1133,76 @@ then we check if the type of is passed in obj is not object or null then its rut
 - We cannot call resolve twice it is resolved only once.
 - You attach a callback function not pass we are attaching the callback with .then()
 
+## 25. Promise APIs
+- Promise.all() - 
+    - we use it when we have to make parallel API calls.
+    - Promise.all takes array of promises as input. actually is not only takes in array it takes something called as iterables as input and array is part of iterables.
+    - Case 1 - All promises are success or Resolved.
+        - it will return all the result of the promises and collect it inside an array.
+        - time to resolve promise.all will be duration of the promise which takes the most time suppose there are 3 promises p1 p2 p3 p2 takes highest time to resolve so promise.all will resolve in same duration as p2, because promise.all will run all these promises in parallel but it will wait for all of them to finish.
 
+    ![alt text](./image77.png)
+
+    ![alt text](image84.png)
+
+    - Case 2- if any of the promise fails or Rejected.
+        - As soon as any of the promise failes in promise.all it will throw error. whatever error it will get from the rejected promise it will throw the same error.
+        - it will not even wait for other promises to run , it will just stop and throw error.
+        - other promises wont be cancelled though, whenever a promise is created it cant be cancelled in-between. it will get resolved or reject but promise.all will give error as soon as 1 promise is failed.
+
+        ![alt text](image78.png)
+
+        ![alt text](image85.png)
+
+        ![alt text](image87.png)
+
+    - Basically Promise.all follows all or none rule. So, if all the promises are resolved it will give a collective result or it will fail if one of the promise fails.
+
+    - Promise.all() is kind of fail fast , if one fails it will quicklly give output as failed no further checking.
+
+- Promise.allSettled()
+    - if we want result from all promises insted of stopping for an error or failing for an error. we will use promise.allSettled().
+    - Case 1- All Resolved.
+        - It is same as Promise.all will give us an array of the output of each promise.
+    - Case 2 - If 1 fails.
+        - it will still wait for all promises to settle.
+        - Duration to resolve will be the same as the promise which took longest to resolve.
+        - After all of them is resolved it will a give a output as array resolved will have thier values the promise which got rejected will give o/p as error.
+    ![alt text](image79.png)
+
+
+    ![alt text](image86.png)
+
+- Promise.race()
+    - it takes array of promises as intput but give output as first settled promise this time it just returns a single value not an array.
+    - the promise which will be settled first will be the output of this, kind of like race.
+    - if it is a first settled promise is Resolved then it will return that value of the promise and if its rejected it will return the error.
+
+    ![alt text](image80.png)
+
+    ![alt text](image88.png)
+
+    ![alt text](image81.png)
+
+    ![alt text](image.png)
+    
+
+- Promise.any()
+    - it also takes list of promises array of promises. it similar to Promise.race but the condition is it returns the first resolved promise as o/p.
+
+    ![alt text](image82.png)
+    
+    ![alt text](image91.png) 
+
+    - But there can be a case where all the promises are rejected so then it will give output known as aggregate error (aggregated error of all the promises) will give list of all the errors.
+
+    - This is also known as seeking the first success API
+
+    ![alt text](image83.png)
+    ![alt text](image.png)
      
+>[!WARNING]
+> Never have a uncaught error in code always use .catch to catch the uncaught errors. uncaught errors are unhandled errors.
+
+- Lingos used to explain promises in interview.
+![alt text](image90.png)
