@@ -1206,3 +1206,119 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 - Lingos used to explain promises in interview.
 ![alt text](image90.png)
+
+## 26. this keyword 
+
+- to learn this you have know how this works in diffrent scenarios.
+
+- `this` keyword in global space
+     - whatever there is in outside of function which is not nested inside a function is called global space outside layer of programming.
+
+     - if we log `this` in global space it will give us window object. `this` keyword in global space will always refer to global object here in browser it will log window object.
+
+     > console.log(this) // `this` inside global space is global object
+
+- `this` keyword in function ()
+    - `this` inside function will also log the value global object.
+    - but the reason of  o/p is not same as earlier o/p . there is slight catch.
+    - `this` inside function works diffrently in strict mode and non-strict mode. normally you are in non-strict mode. to write in JS strict mode write "use strict" at the top of program. Basically strict mode in JS has some stricter rules.
+    - If we are in strict mode value of `this` inside a function will be undefined 
+
+    - Basically `this` inside function depends on strict and non strict mode.
+
+    ![alt text](image93.png)
+
+- `this` substitution 
+
+    - This a phenomenon, According to this if value of `this` keyword is undefined or null value of it will be replaced by globalObject. only in non-strict mode of JS.
+
+- the value of `this`keyword depends how function is called in "strict mode"
+
+    - when we call a function without any refrence the value of `this` is undefined. 
+    - if you call it with a refrence then value of `this` will be the object refrenced.
+
+    ![alt text](image94.png)
+
+- `this` inside object's method.
+
+    - if you make a function as part of an object then its called a method.
+    - suppose we have an object obj which has two items a has value of 10 and x which has function logging `this` value. so we usually say x is a method of object obj.
+    - if we call the method like obj.x() then value of `this` will be obj the object where the method is present.
+
+    ![alt text](image95.png)
+
+- `this` in  call apply bind (sharing methods)
+
+    - we use call apply bind when we have to share methods.
+
+    - if obj1 has a method we want to share the same method with obj 2 to achive the similar task we use these 3 methods (call, apply , bind ) . this overrides the value of `this` keyword.
+
+    > obj1.func.call(obj2); // syntax
+    > - "func" method exists inside obj1 so thats why obj1.func is used in syntax 
+    > - then we write .call() an call will take new `this` keyword and will override the existing value inside the method func() of obj1.
+    > - the new value of `this` will the new object obj2
+    > - like this call apply bind will be used to set `this` inside it.
+
+    ![alt text](image96.png)
+
+- `this` inside arrow functions
+
+    - arrow functions don't have thier own `this`. they take the value of thier lexical environment where they are enclosed.
+
+    - value of `this` will be same as its enclosed lexical context inside arrow function.
+
+    ![alt text](image97.png)
+    
+    - for this example value of `this` will be globalObject as the obj is in the global space or you can say enclosed in the lexical context of global space.
+
+    ![alt text](image98.png)
+
+    - for this example value of `this` will be the obj2 only because as we know the function x enclosed the arrow function y. it is now the lexical context of the arrow function y . we know from before that the value of `this` inside method is the object itself. So the method x will have a `this` value of obj2
+
+    - > [!Important]
+      > Arrow function doesnt have its own this binding.
+
+- `this` inside DOM
+
+    - We can also write `this` inside our DOM or we can say in HTML file too.
+
+    - you can write inside a event handler
+
+    ![alt text](image99.png)
+
+    - it will give the reference of the button element as the vlaue of `this`, you can also do many things like `this.tagName` it will give o/p text button
+
+    - conclusion this inisde DOM will give reference to HTML elements.
+
+## 27. call apply bind methods.
+
+- call()
+    - using call method we can do function borrowing we can borrow the methods of other objects with the data of other objects.
+    - you can write like this object.method.call(refernce)
+    - first argument will be the refrence to what this keyword will point to.
+
+    ![alt text](image100.png)
+
+    - we usually keep the methods outside the object so it is not particular property of any object and we call it like function.call(refernce)
+
+    ![alt text](image101.png)
+
+    - if we have parameters inside the methods we can pass it inside call as 2nd arg or more 1st arg will always be refrence to this.
+
+    ![alt text](image102.png)
+
+- apply()
+    - only diffrence between call and apply is we pass arguments of method as an array list as a 2nd argument of apply method 1st arg always will be refrence to this.
+
+    ![alt text](image103.png)
+
+- bind()
+
+    - bind method is bit different instead of calling the function immediately bind method binds the function with an object and returns a copy of it. so we can call it later.
+
+    ![alt text](image104.png)
+    
+
+
+
+
