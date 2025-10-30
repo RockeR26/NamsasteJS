@@ -1320,5 +1320,63 @@ then we check if the type of is passed in obj is not object or null then its rut
     
 
 
+## 28. Polyfill for bind 
 
+- Polyfill is a sort of browser fallback,suppose your browser has no bind function you have to write your own bind function.
+
+
+- this is code for pollyfill for bind
+    - ![alt text](image105.png)
+
+## 29. Debouncing and Throttling
+
+- Interview Questions
+    - what is debouncing and throttling
+    - difference between debouncing and throttling.
+    - write your own code way of debouncing and throttling basically polyfill
+    - scenario based questions on these concepts, these concepts are generally used for performance optimization,rate limiting of function calls and executions.
+    - Why you using debouncing over throttling in which scenario we will use which
+    - Which is better dont choose one explain the situation to interviewer
+
+- Debouncing and Throttling both are used in optimizing performance of the webapp.we do it by limiting the rate of function calls, that function call could be anything like fetching data from api or logging any data, sometime a function is called lot of times when we attach a function to eventlistner the function is called repeatedly unnecessarily. so, we could limit the rate of execution and optimize our webApp.
+
+- Example 1 - Search Bar
+
+    - In this Image we can see a searchbar everytime we press a key it will do an API call by executing get results functions so if we write "Samsung note" it will call the API 11 times imagine all the users using our website at the same time searching for diffrent things this will put huge load on our app and APIs that is not performant , we could limit this rate of api calls.this behaviour is seen in ecommerce-sites.  
+    ![alt text](image106.png)
+
+- Debouncing
+
+    - ![alt text](image107.png) 
+    - Debouncing is if the diffrence between two keystrokes is 300 ms then it will call the function
+
+- Throttling 
+    - ![alt text](image108.png)
+    - Throttling is diffrence between two function call will be 300ms.it will ignore the the in-between calls. 
+    it is like calling the function after a certain interval of time
+
+- Debouncing make more sense when it comes to use of a search bar 
+
+- Example 2 - Resizing Browser window
+
+- Debouncing 
+    - debouncing says only make an api call when difference between two resize events is 100ms
+- Throttling 
+    - even if do fast or slow whatrever it will call the api after the 100 ms of first call and will ignore all the api calls within 100ms.
+
+- For resizing it totally depends on our use case throttling can be used if user is resizing window again and again in every 100 ms the api will be called.if we want to log that how often the user is resizing the browser then throttling could make more sense.If you want to know how many times user is resizing then debounce can be helpful.
+
+![alt text](image109.png)
+
+-Example 3 - Button press
+
+- If the user is frequently tapping the button how debouncing and throttling will work in this scenario (example shooting game where you shoot ducks)
+
+- Debouncing 
+    - even if the user clicks multiple times it will call the button click event when we stop clicking for 500ms or more or we pause clicking and give it a window of 500 ms
+
+- throttling 
+- In a shooting Game throttling makes more sense like if its a machine gun then cooldown period is less but if its a pistol so for a shooting game throttle make more sense.
+
+![alt text](image110.png)
 
