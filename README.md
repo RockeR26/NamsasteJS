@@ -1380,3 +1380,18 @@ then we check if the type of is passed in obj is not object or null then its rut
 
 ![alt text](image110.png)
 
+## 30. Debounce & Throttle (code)
+
+- Debounce and Throttle is really helpful while you are developing Web-Apps.when you are developing customer facing web-Apps it has to be performant, it should not freeze when user doing anything on browser.
+
+- So here we have a button on click which should increase the value of count in next paragraphs when clicked , normally , debounced , throttled way.
+
+- Debounce&Throttle using lodash
+![alt text](image111.png)
+
+- Debounce and Throttle code
+![alt text](image-1.png)
+
+
+
+
