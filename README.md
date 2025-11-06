@@ -1184,7 +1184,7 @@ then we check if the type of is passed in obj is not object or null then its rut
 
     ![alt text](image81.png)
 
-    ![alt text](image.png)
+    ![alt text](image89.png)
     
 
 - Promise.any()
@@ -1199,7 +1199,7 @@ then we check if the type of is passed in obj is not object or null then its rut
     - This is also known as seeking the first success API
 
     ![alt text](image83.png)
-    ![alt text](image.png)
+    ![alt text](image92.png)
      
 >[!WARNING]
 > Never have a uncaught error in code always use .catch to catch the uncaught errors. uncaught errors are unhandled errors.
@@ -1275,7 +1275,7 @@ then we check if the type of is passed in obj is not object or null then its rut
 
     - for this example value of `this` will be the obj2 only because as we know the function x enclosed the arrow function y. it is now the lexical context of the arrow function y . we know from before that the value of `this` inside method is the object itself. So the method x will have a `this` value of obj2
 
-    - > [!Important]
+    - > [!IMPORTANT]
       > Arrow function doesnt have its own this binding.
 
 - `this` inside DOM
@@ -1379,4 +1379,24 @@ then we check if the type of is passed in obj is not object or null then its rut
 - In a shooting Game throttling makes more sense like if its a machine gun then cooldown period is less but if its a pistol so for a shooting game throttle make more sense.
 
 ![alt text](image110.png)
+
+## 30. Debounce & Throttle (code)
+
+- Debounce and Throttle is really helpful while you are developing Web-Apps.when you are developing customer facing web-Apps it has to be performant, it should not freeze when user doing anything on browser.
+
+- So here we have a button on click which should increase the value of count in next paragraphs when clicked , normally , debounced , throttled way.
+
+- Debounce&Throttle using lodash
+![alt text](image111.png)
+
+- Debounce and Throttle code
+![alt text](image112.png)
+
+>[!IMPORTANT]
+>`myDebounce` function(polyfill) cannot be directly used inside the event listner directly so we have to wrap it inside a function like `debouncefn` here so there can be 1 timer for all the key strokes whenevr we run event `debouncefn` will be called inside it there is a timer that will run for delay passed as arguement inside `myDebounce` for every event it will check if timer is present then it would clear the timer and reset the timer. so we cannot declare the `myDebounce` inside event listner it will create individual timer for every keystroke.
+
+
+
+
+
 
